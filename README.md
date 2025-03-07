@@ -17,14 +17,14 @@ A toolkit for creating and managing image datasets for AI training, consisting o
 
 ### 1. Clone/Create Project Directory
 ```
-mkdir game_dataset_tools
-cd game_dataset_tools
+mkdir AIORD-py
+cd AIORD-py
 ```
 
 ### 2. Save the Scripts
 Create two files in the directory:
-- `screenshot_capture.py` (First application code)
-- `dataset_deduplicator.py` (Second application code)
+- `harvester.py` (First application code)
+- `dedupy.py` (Second application code)
 
 ### 3. Install Dependencies
 ```
@@ -39,7 +39,7 @@ pip install pillow pynput pywin32 imagehash
 
 #### Step 1: Run the Capture Tool
 ```
-python screenshot_capture.py
+python harvester.py
 ```
 
 #### Step 2: Name Your Object Class
@@ -67,29 +67,29 @@ Enter the object name for the dataset: enemy_character
 
 #### Basic Deduplication (Recommended)
 ```
-python dataset_deduplicator.py dataset/enemy_character --method phash --threshold 95 --action move
+python dedupy.py dataset/enemy_character --method phash --threshold 95 --action move
 ```
 
 #### Common Usage Patterns
 
 1. **Safe Mode** (Move duplicates to subfolder):
 ```
-python dataset_deduplicator.py path/to/dataset --action move
+python dedupy.py path/to/dataset --action move
 ```
 
 2. **Aggressive Cleaning** (Delete duplicates immediately):
 ```
-python dataset_deduplicator.py path/to/dataset --action delete
+python dedupy.py path/to/dataset --action delete
 ```
 
 3. **Exact File Duplicates**:
 ```
-python dataset_deduplicator.py path/to/dataset --method md5
+python dedupy.py path/to/dataset --method md5
 ```
 
 4. **Loose Deduplication** (80% similarity threshold):
 ```
-python dataset_deduplicator.py path/to/dataset --threshold 80
+python dedupy.py path/to/dataset --threshold 80
 ```
 
 ---
@@ -137,7 +137,7 @@ python dataset_deduplicator.py path/to/dataset --threshold 80
 5. **Duplicate Detection Errors**
    - Try different threshold values
    ```bash
-   python dataset_deduplicator.py path/to/dataset --threshold 85
+   python dedupy.py path/to/dataset --threshold 85
    ```
 
 ---
