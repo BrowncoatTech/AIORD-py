@@ -1,7 +1,4 @@
-(Due to technical issues, the search service is temporarily unavailable.)
-
-
-# Game Object Recognition Dataset Tools
+# AI O
 
 A toolkit for creating and managing image datasets for AI training, consisting of:
 1. **Screen Capture Tool** - Captures game screenshots on right-click hold
