@@ -18,26 +18,26 @@ def get_active_window_rect():
     return win32gui.GetWindowRect(window)
 
 def capture_screenshot():
-"""Capture and save a screenshot of a 640x640 box centered on the display"""
-try:
-    # Get the current screen size
-screen_width = win32api.GetSystemMetrics(win32con.SM_CXSCREEN)
-screen_height = win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
+    """Capture and save a screenshot of a 640x640 box centered on the display"""
+    try:
+        # Get the current screen size
+        screen_width = win32api.GetSystemMetrics(win32con.SM_CXSCREEN)
+        screen_height = win32api.GetSystemMetrics(win32con.SM_CYSCREEN)
 
-# Calculate the bounding box for a 640x640 area centered on the screen
-left = (screen_width - 640) // 2
-top = (screen_height - 640) // 2
-right = left + 640
-bottom = top + 640
+        # Calculate the bounding box for a 640x640 area centered on the screen
+        left = (screen_width - 640) // 2
+        top = (screen_height - 640) // 2
+        right = left + 640
+        bottom = top + 640
 
-# Capture the screenshot with the defined bounding box
-    img = ImageGrab.grab(bbox=(left, top, right, bottom))
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
-img.save(os.path.join(dataset_dir, f"{object_name}_{timestamp}.png"))
-print(f"Captured: {object_name}_{timestamp}.png")
-except Exception as e:
-print(f"Error capturing screenshot: {str(e)}")
-
+        # Capture the screenshot with the defined bounding box
+        img = ImageGrab.grab(bbox=(left, top, right, bottom))
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        img.save(os.path.join(dataset_dir, f"{object_name}_{timestamp}.png"))
+        print(f"Captured: {object_name}_{timestamp}.png")
+    except Exception as e:
+        print(f"Error capturing screenshot: {str(e)}")
+        
 def on_click(x, y, button, pressed):
     """Mouse click event handler"""
     global capturing
