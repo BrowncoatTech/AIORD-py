@@ -1,4 +1,4 @@
-# AI O
+# AI Object Recognition Data tools
 
 A toolkit for creating and managing image datasets for AI training, consisting of:
 1. **Screen Capture Tool** - Captures game screenshots on right-click hold
